@@ -1,5 +1,3 @@
-package LAA;
-
 import java.util.Arrays; // importa a biblioteca de vetores
 
 public class InsertionSort { // cria a classe InsertionSort
