@@ -11,23 +11,24 @@ public class CountingSort {
             numeros[i] = scanner.nextInt();
         }
 
+        System.out.println(Arrays.toString((int[]) Ordenar(numeros)[0]));
+        System.out.println("Tempo de execução: " + Ordenar(numeros)[1] + " nanosegundos");
+    }
+
+    public static Object[] Ordenar(int[] numeros) {
+        double inicioContagem = System.nanoTime();
+        int min = Arrays.stream(numeros).min().getAsInt();
         int max = Arrays.stream(numeros).max().getAsInt();
-        int[] index = new int[max + 1];
-        for (int numero : numeros) {
-            index[numero]++;
-        }
-
-        int soma = 0;
-        for (int i = 0; i < index.length; i++) {
-            soma += index[i];
-            index[i] = soma;
-        }
-
+        int[] index = new int[max - min + 1];
         int[] places = new int[numeros.length];
-        for (int numero : numeros) {
-            places[index[numero] - 1] = numero;
-            index[numero]--;
-        }
-        System.out.println(Arrays.toString(places));
+
+        for (int numero : numeros) index[numero - min]++;
+
+        for (int i = 1; i < index.length; i++) index[i] += index[i - 1];
+
+        for (int numero : numeros) places[index[numero - min]-- - 1] = numero;
+
+        double fimContagem = System.nanoTime();
+        return new Object[]{places, (fimContagem - inicioContagem)};
     }
 }
