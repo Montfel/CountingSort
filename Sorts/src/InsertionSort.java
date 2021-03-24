@@ -10,9 +10,9 @@ public class InsertionSort { // cria a classe InsertionSort
             int aux = numeros[i]; // Salva o valor da posição atual do vetor em uma variável auxiliar
             int j; // declara uma variável para percorrer o for
             for (j = i-1; (j >= 0) && (numeros[j] > aux); j--){ // realiza um laço que percorre o vetor começando da
-                                                                // posição i-1 e vai decrescendo enquanto a posiçao for
-                                                                // maior que 0 e o valor atual da posição do vetor seja
-                                                                // maior que a váriavel auxiliar
+                // posição i-1 e vai decrescendo enquanto a posiçao for
+                // maior que 0 e o valor atual da posição do vetor seja
+                // maior que a váriavel auxiliar
                 numeros[j+1] = numeros[j]; // Atribui o valor da posição atual do vetor para a posição posterior
             }
             numeros[j+1] = aux; // Atribui o valor da variável auxiliar para a posição anterior do vetor

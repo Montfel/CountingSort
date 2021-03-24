@@ -8,7 +8,7 @@ public class BubbleSort {
     }
     public static int[] bubbleSort(int[] numeros) { // método criado para ordenar o vetor
         for (int i = 0; i < (numeros.length - 1) - i; i++) { // laço criado para percorrer o vetor com a quantidade de
-                                                             // vezes que vai reiniciar a troca
+            // vezes que vai reiniciar a troca
             for (int j = 0; j < (numeros.length - 1) - i; j++) { //laço para realizar as trocas do número pelo posterior
                 if (numeros[j] > numeros[j + 1]) { // verifica se o número atual é maior que número posterior do vetor
                     int aux = numeros[j]; // salva em uma variável auxiliar o número da posição atual
