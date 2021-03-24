@@ -30,6 +30,5 @@ public class CountingSort {
 
         double fimContagem = System.nanoTime();
         return new Object[]{places, (fimContagem - inicioContagem)};
-
     }
 }
