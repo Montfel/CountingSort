@@ -26,9 +26,9 @@ public class CountingSort {
 
         for (int i = 1; i < index.length; i++) index[i] += index[i - 1];
 
-        for (int numero : numeros) places[index[numero - min]-- - 1] = numero;
+        for (int i = numeros.length - 1; i >= 0; i--) places[index[numeros[i] - min]-- - 1] = numeros[i];
 
         double fimContagem = System.nanoTime();
-        return new Object[]{places, (fimContagem - inicioContagem)};
+        return new Object[] {places, (fimContagem - inicioContagem)};
     }
 }
