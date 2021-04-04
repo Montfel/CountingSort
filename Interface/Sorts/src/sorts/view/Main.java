@@ -6,8 +6,10 @@
 package sorts.view;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 import javax.swing.JOptionPane;
-import sorts.Sorts;
+import sorts.*;
 
 /**
  *
@@ -37,13 +39,14 @@ public class Main extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ordenar = new javax.swing.JButton();
         arrayInput = new javax.swing.JTextField();
-        coutingSortButton = new javax.swing.JRadioButton();
+        countingSortButton = new javax.swing.JRadioButton();
         bubbleSortButton = new javax.swing.JRadioButton();
         selectionSortButton = new javax.swing.JRadioButton();
         insertionSortButton = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        MultiThreading = new javax.swing.JButton();
+        CheckBox = new javax.swing.JCheckBox();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("ORDENAÇÃO DE NÚMEROS");
@@ -71,17 +74,17 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel2)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Números:");
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setText("Ordenar ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ordenar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ordenar.setText("Ordenar ");
+        ordenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ordenarActionPerformed(evt);
             }
         });
 
@@ -91,11 +94,11 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(coutingSortButton);
-        coutingSortButton.setText("Couting Sort");
-        coutingSortButton.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(countingSortButton);
+        countingSortButton.setText("Counting Sort");
+        countingSortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coutingSortButtonActionPerformed(evt);
+                countingSortButtonActionPerformed(evt);
             }
         });
 
@@ -108,30 +111,46 @@ public class Main extends javax.swing.JFrame {
         buttonGroup1.add(insertionSortButton);
         insertionSortButton.setText("InsertionSort");
 
-        jRadioButton5.setText("Todos");
+        MultiThreading.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        MultiThreading.setText("Ordenar  todos");
+        MultiThreading.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MultiThreadingActionPerformed(evt);
+            }
+        });
+
+        CheckBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        CheckBox.setText("Usar números aleatórios");
+        CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ordenar)
+                .addGap(40, 40, 40)
+                .addComponent(MultiThreading)
+                .addGap(91, 91, 91))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bubbleSortButton)
                     .addComponent(insertionSortButton)
-                    .addComponent(jRadioButton5)
                     .addComponent(selectionSortButton)
-                    .addComponent(coutingSortButton)
+                    .addComponent(countingSortButton)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(arrayInput, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(73, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(144, 144, 144))
+                        .addComponent(arrayInput, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CheckBox))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,8 +160,10 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(arrayInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(20, 20, 20)
-                .addComponent(coutingSortButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CheckBox)
+                .addGap(26, 26, 26)
+                .addComponent(countingSortButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bubbleSortButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -150,82 +171,137 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(insertionSortButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ordenar)
+                    .addComponent(MultiThreading))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 451, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 305, Short.MAX_VALUE)
+            .addGap(0, 524, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String array = arrayInput.getText();
-        ArrayList<Integer> numeros = new ArrayList();
-        for(String numero : array.split(",")){
-            numeros.add(Integer.parseInt(numero));
+    private void ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarActionPerformed
+        int[] numeros;
+        if (!CheckBox.isSelected()) {
+            String array = arrayInput.getText();
+            String[] numeros2 = array.split(",");
+            numeros = new int[numeros2.length];
+            for (int i = 0; i < numeros.length; i++){
+                numeros[i] = Integer.parseInt(numeros2[i]);
+            }
+        } else {
+            numeros = new int[20];
+            Random random = new Random();
+            for (int i = 0; i < numeros.length; i++) {
+                numeros[i] = random.nextInt(100);
+            }
         }
+      
         if (bubbleSortButton.isSelected()){
             double inicioContagem = System.nanoTime();
-            ArrayList<Integer> numeros_ordenados = Sorts.bubbleSort(numeros);
+            int[] numeros_ordenados = Sorts.bubbleSort(numeros);
             double fimContagem = System.nanoTime();
             double resultado = fimContagem - inicioContagem;
-            JOptionPane.showMessageDialog(null,numeros_ordenados + "\nOrdenado em: " + resultado + " nano seconds");         
+            JOptionPane.showMessageDialog(null,Arrays.toString(numeros_ordenados) + "\nOrdenado em: " + resultado + " nano seconds");         
             
         }
         if (insertionSortButton.isSelected()){
             double inicioContagem = System.nanoTime();
-            ArrayList<Integer> numeros_ordenados = Sorts.insertionSort(numeros);
+            int[] numeros_ordenados = Sorts.insertionSort(numeros);
             double fimContagem = System.nanoTime();
             double resultado = fimContagem - inicioContagem;
-            JOptionPane.showMessageDialog(null,numeros_ordenados + "\nOrdenado em: " + resultado + " nano seconds");   
+            JOptionPane.showMessageDialog(null,Arrays.toString(numeros_ordenados) + "\nOrdenado em: " + resultado + " nano seconds");   
             
         }
         if (selectionSortButton.isSelected()){
             double inicioContagem = System.nanoTime();
-            ArrayList<Integer> numeros_ordenados = Sorts.selectionSort(numeros);
+            int[] numeros_ordenados = Sorts.selectionSort(numeros);
             double fimContagem = System.nanoTime();
             double resultado = fimContagem - inicioContagem;
-            JOptionPane.showMessageDialog(null,numeros_ordenados + "\nOrdenado em: " + resultado + " nano seconds");   
+            JOptionPane.showMessageDialog(null,Arrays.toString(numeros_ordenados) + "\nOrdenado em: " + resultado + " nano seconds");   
         }
-        if (coutingSortButton.isSelected()){
+        if (countingSortButton.isSelected()){
             double inicioContagem = System.nanoTime();
-            ArrayList<Integer> numeros_ordenados = Sorts.coutingSort(numeros);
+            int[] numeros_ordenados = Sorts.countingSort(numeros);
             double fimContagem = System.nanoTime();
             double resultado = fimContagem - inicioContagem;
-            JOptionPane.showMessageDialog(null,numeros_ordenados + "\nOrdenado em: " + resultado + " nano seconds");   
+            JOptionPane.showMessageDialog(null,Arrays.toString(numeros_ordenados) + "\nOrdenado em: " + resultado + " nano seconds");   
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ordenarActionPerformed
 
     private void arrayInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrayInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_arrayInputActionPerformed
 
-    private void coutingSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coutingSortButtonActionPerformed
+    private void countingSortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countingSortButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_coutingSortButtonActionPerformed
+    }//GEN-LAST:event_countingSortButtonActionPerformed
+
+    private void MultiThreadingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultiThreadingActionPerformed
+        int[] numeros;
+        if (!CheckBox.isSelected()) {
+            String array = arrayInput.getText();
+            String[] numeros2 = array.split(",");
+            numeros = new int[numeros2.length];
+            for (int i = 0; i < numeros.length; i++){
+                numeros[i] = Integer.parseInt(numeros2[i]);
+            }
+        } else {
+            numeros = new int[50000];
+            Random random = new Random();
+            for (int i = 0; i < numeros.length; i++) {
+                numeros[i] = random.nextInt(100000000);
+            }
+        }
+        
+        InsertionSortT is = new InsertionSortT(numeros);
+        Thread ist = new Thread(is);
+        BubbleSortT bs = new BubbleSortT(numeros);
+        Thread bst = new Thread(bs);
+        SelectionSortT ss = new SelectionSortT(numeros);
+        Thread sst = new Thread(ss);
+        CountingSortT cs = new CountingSortT(numeros);
+        Thread cst = new Thread(cs);
+
+        ist.start();
+        bst.start();
+        sst.start();
+        cst.start();
+        
+        
+        
+    }//GEN-LAST:event_MultiThreadingActionPerformed
+
+    private void CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxActionPerformed
+        if (CheckBox.isSelected()) {
+            arrayInput.setEditable(false);
+            arrayInput.setText("");
+        } else {
+            arrayInput.setEditable(true);
+        }
+    }//GEN-LAST:event_CheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,18 +339,19 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox CheckBox;
+    private javax.swing.JButton MultiThreading;
     private javax.swing.JTextField arrayInput;
     private javax.swing.JRadioButton bubbleSortButton;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JRadioButton coutingSortButton;
+    private javax.swing.JRadioButton countingSortButton;
     private javax.swing.JRadioButton insertionSortButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JButton ordenar;
     private javax.swing.JRadioButton selectionSortButton;
     // End of variables declaration//GEN-END:variables
 }

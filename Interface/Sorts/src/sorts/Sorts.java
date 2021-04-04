@@ -1,83 +1,65 @@
 package sorts;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Sorts {
     //BubbleSort 
-     public static ArrayList<Integer> bubbleSort(ArrayList<Integer> numeros) { 
-         int n = numeros.size();
+    public static int[] bubbleSort(int[] numeros) { 
          int temp = 0;
-         for(int i = 0; i < n; i++){
-             for(int j = 1; j < (n-i);j++){
-                 if(numeros.get(j-1) > numeros.get(j)){
-                     temp = numeros.get(j-1);
-                     numeros.set(j-1,numeros.get(j));
-                     numeros.set(j, temp);
+         for(int i = 0; i < numeros.length; i++){
+             for(int j = 1; j < (numeros.length - i);j++){
+                 if(numeros[j-1] > numeros[j]){
+                     temp = numeros[j-1];
+                     numeros[j-1] = numeros[j];
+                     numeros[j] = temp;
                  }
              }
          }
          return numeros;
      }
-         
-    //CoutingSort
     
-   public static ArrayList<Integer> coutingSort(ArrayList<Integer> numeros) {
-        int min = numeros.get(0);
-        int max = numeros.get(0);
-        for(Integer numero : numeros){
-            if (numero < min){
-                min = numero;
-            }
-            if (numero > max){
-                max = numero;
-            }
-        }
+    //CountingSort
+    public static int[] countingSort(int[] numeros) {
+        int min = Arrays.stream(numeros).min().getAsInt();
+        int max = Arrays.stream(numeros).max().getAsInt();
         int[] index = new int[max - min + 1];
+        int[] places = new int[numeros.length];
 
         for (int numero : numeros) index[numero - min]++;
 
-        int k = 0;
-        for (int i = 0; i < index.length; i++)
-            while (index[i] > 0) {
-                numeros.set(k++,i+min);
-                index[i]--;
-            }
+        for (int i = 1; i < index.length; i++) index[i] += index[i - 1];
 
-        return numeros;
+        for (int i = numeros.length - 1; i >= 0; i--) places[index[numeros[i] - min]-- - 1] = numeros[i];
+        
+        return places;
     }
    
     //InsertionSort
-     public static ArrayList<Integer>  insertionSort(ArrayList<Integer> numeros) {
-         for (int i = 1; i < numeros.size(); i++){ 
-            int aux = numeros.get(i); 
+     public static int[] insertionSort(int[] numeros) {
+         for (int i = 1; i < numeros.length; i++){ 
+            int aux = numeros[i]; 
             int j; 
-            for (j = i-1; (j >= 0) && (numeros.get(j) > aux); j--){ 
-                numeros.set(j+1,numeros.get(j));
+            for (j = i-1; (j >= 0) && (numeros[j] > aux); j--){ 
+                numeros[j+1] = numeros[j];
             }
-            numeros.set(j+1,aux); 
+            numeros[j+1] = aux; 
         } 
         return numeros;
     }
      
      //SelectionSort
-     public static ArrayList<Integer> selectionSort(ArrayList<Integer> numeros) {
-        int n = numeros.size();
-        for ( int i = 0; i < n-1; i++){
+     public static int[] selectionSort(int[] numeros) {
+        for ( int i = 0; i < numeros.length - 1; i++){
             int min_idx = i;
-            for (int j = i+1; j < n; j++){
-                if (numeros.get(j) < numeros.get(min_idx)){
+            for (int j = i+1; j < numeros.length; j++){
+                if (numeros[j] < numeros[min_idx]){
                     min_idx = j;  
                 }
             }
-            int temp = numeros.get(min_idx);
-            numeros.set(min_idx,numeros.get(i));
-            numeros.set(i,temp);
+            int temp = numeros[min_idx];
+            numeros[min_idx] = numeros[i];
+            numeros[i] = temp;
         }
-        
-        
         return numeros;
     }
-     
-     
 }
