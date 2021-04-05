@@ -28,7 +28,6 @@ public class BubbleSortT implements Runnable {
             }
         }
         double fimContagem = System.nanoTime();
-        
         System.out.println("BubbleSort Tempo de execução: " + (fimContagem - inicioContagem));
     }
 }
