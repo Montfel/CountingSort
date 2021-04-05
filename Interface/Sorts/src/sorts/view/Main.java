@@ -81,7 +81,7 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setText("Números:");
 
         ordenar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ordenar.setText("Ordenar ");
+        ordenar.setText("Ordenar selecionado");
         ordenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordenarActionPerformed(evt);
@@ -112,7 +112,7 @@ public class Main extends javax.swing.JFrame {
         insertionSortButton.setText("InsertionSort");
 
         MultiThreading.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        MultiThreading.setText("Ordenar  todos");
+        MultiThreading.setText("Ordenar todos");
         MultiThreading.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MultiThreadingActionPerformed(evt);
@@ -135,9 +135,9 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ordenar)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MultiThreading)
-                .addGap(91, 91, 91))
+                .addGap(13, 13, 13))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +181,7 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 451, Short.MAX_VALUE)
+            .addGap(0, 439, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

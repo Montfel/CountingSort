@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ef18feb-94b2-418d-9a40-d1c77ce19d51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sorts/BubbleSortT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sorts/CountingSortT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sorts/InsertionSortT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sorts/SelectionSortT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/BubbleSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/InsertionSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sorts/Sorts.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sorts/Sorts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sorts/view/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sorts/view/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sorts/view/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sorts/view/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sorts/view/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sorts/view/Main$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sorts/view/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sorts/view/Main$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/sorts/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sorts/view/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/sorts/view/Main.form" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sorts/view/Main.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sorts/BubbleSort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sorts/InsertionSort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sorts/Sorts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sorts/Sorts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sorts/view/Main.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/sorts/view/Main.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sorts/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sorts/view/Main.java" afterDir="false" />
     </list>
@@ -101,5 +86,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
