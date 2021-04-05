@@ -289,9 +289,6 @@ public class Main extends javax.swing.JFrame {
         bst.start();
         sst.start();
         cst.start();
-        
-        
-        
     }//GEN-LAST:event_MultiThreadingActionPerformed
 
     private void CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxActionPerformed
